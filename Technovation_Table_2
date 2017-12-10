@@ -1,0 +1,276 @@
+use Technovation; /* all girl's competition */
+drop table if exists Student, Student_Team, team, Mentor, Mentor_skills, skills, Mentor_Team, location;
+
+create table Student (
+	Student_id integer(2) not null primary key,
+    first_name varchar(100),
+    last_name varchar(100),
+    birthday date,
+    Email varchar(100),
+    school varchar(100)
+    );
+    
+  create table Student_Team (
+	student_id integer(2) references Student.Student_Team,
+    team_id integer(2) 
+	);  
+
+create table team (
+	team_id integer(2) not null primary key,
+    division varchar(100),
+    team_name varchar(100)
+    );
+    
+create table Mentor_Team (
+	mentor_id integer(2),
+    team_id integer(2) references team.team_id
+    );    
+    
+create table Mentor (
+	mentor_id integer(2) not null primary key,
+    first_name varchar(100),
+    last_name varchar(100),
+    workplace varchar(100),
+    location_id varchar(10) references location.location_id,
+    email varchar(100)
+    );
+
+create table location (
+	location_id integer(2) not null primary key,
+    location varchar(1000)
+    );
+    
+create table mentor_skills (
+	mentor_id integer(2) references Mentor.mentor_id,
+    skills_id integer(2) references skills.skills_id
+    );
+
+create table skills (
+	skills_id integer(2) not null primary key,
+    S_name varchar(100)
+    );
+
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('1', 'Blake', 'Smokey', '2004-01-09', 'blakesmokey@gmail.com', 'AHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('2', 'Samantha', 'Chang', '2004-02-09', 'Samanthachang@gmail.com', 'AHS');
+
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('3', 'Fred', 'Hong', '2003-01-09', 'fredhong@gmail.com', 'IHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('4', 'Henry', 'Wang', '1998-03-19', 'henrywang@gmail.com', 'JLHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('5', 'Maria', 'Carrie', '1999-12-24', 'm_carrie@gmail.com', 'MSJHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('6', 'Riya', 'Raegan', '2008-03-25', 'riya_r@gmail.com', 'MCHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('7', 'Chopra', 'Swag', '2001-05-28', 'Chopraswag@gmail.com', 'MSJHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('8', 'Shaila', 'Orangatang', '1998-05-23', 'Shaila_O@gmail.com', 'IHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('9', 'Heidi', 'Mena', '2010-10-19', 'Heidi_M@gmail.com', 'AHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('10', 'Mary', 'Shep', '2002-01-15', 'Maryshap@gmail.com', 'IHS');
+
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('11', 'Mia', 'Morana', '2003-11-15', 'MiaMorana@gmail.com', 'JLHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('12', 'Chef', 'Douglas', '2003-02-13', 'ChefDouglas@gmail.com', 'MCHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('13', 'Boy', 'Fig', '1999-02-22', 'Boyfig@gmail.com', 'IHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('14', 'Yard', 'Pear', '2011-05-24', 'Yardpear@gmail.com', 'MSJHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('15', 'Bonnie', 'Mister', '2004-04-19', 'BonnieM@gmail.com', 'MSJHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('16', 'Clyde', 'Misses', '2003-02-15', 'ClydeM@gmail.com', 'AHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('17', 'Clifford', 'Norman', '2001-01-14', 'CliffordNorman@gmail.com', 'JLHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('18', 'Daniel', 'Norm', '2000-05-04', 'Daniel_Norm@gmail.com', 'AHS');
+    
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('19', 'Daniella', 'Narruto', '2000-03-14', 'Danielle_N@gmail.com', 'MCHS');
+
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('20', 'Marionna', 'Farch', '2004-04-20', 'MarionnaF@gmail.com', 'IHS');
+
+insert into Student (Student_id, first_name, last_name, birthday, email, school)
+	values ('21', 'Fiona', 'Queen', '1999-10-30', 'FionaQueen@gmail.com', 'IHS');
+    
+insert into Student_Team (student_id, team_id)
+	values ('1', '1');
+
+insert into Student_Team (student_id, team_id)
+	values ('2', '1');
+    
+insert into Student_Team (student_id, team_id)
+	values ('3', '1');
+    
+insert into Student_Team (student_id, team_id)
+	values ('4', '1');
+    
+insert into Student_Team (student_id, team_id)
+	values ('5', '2');
+
+insert into Student_Team (student_id, team_id)
+	values ('6', '2');
+    
+insert into Student_Team (student_id, team_id)
+	values ('7', '2');
+    
+insert into Student_Team (student_id, team_id)
+	values ('8', '2');
+    
+insert into Student_Team (student_id, team_id)
+	values ('9', '3');
+    
+insert into Student_Team (student_id, team_id)
+	values ('10', '3');
+    
+insert into Student_Team (student_id, team_id)
+	values ('11', '3');
+    
+insert into Student_Team (student_id, team_id)
+	values ('12', '3');
+    
+insert into Student_Team (student_id, team_id)
+	values ('13', '4');
+    
+insert into Student_Team (student_id, team_id)
+	values ('14', '4');
+    
+insert into Student_Team (student_id, team_id)
+	values ('15', '4');
+    
+insert into Student_Team (student_id, team_id)
+	values ('16', '4');
+    
+insert into Student_Team (student_id, team_id)
+	values ('17', '5');
+
+insert into Student_Team (student_id, team_id)
+	values ('18', '5');
+
+insert into Student_Team (student_id, team_id)
+	values ('19', '5');
+    
+insert into Student_Team (student_id, team_id)
+	values ('20', '5');
+
+insert into team (team_id, division, team_name)
+	values ('1', '1', 'rainbowz');
+    
+insert into team (team_id, division, team_name)
+	values ('2', '1', 'redflags');
+    
+insert into team (team_id, division, team_name)
+	values ('3', '1', 'blues');
+    
+insert into team (team_id, division, team_name)
+	values ('4', '1', 'Twice');
+    
+insert into team (team_id, division, team_name)
+	values ('5', '1', 'Red Velvet');
+-- 
+insert into Mentor_Team (mentor_id, team_id)
+	values ('1', '1');
+    
+insert into Mentor_Team (mentor_id, team_id)
+	values ('2', '2');
+    
+insert into Mentor_Team (mentor_id, team_id)
+	values ('3', '3');
+
+insert into Mentor_Team (mentor_id, team_id)
+	values ('4', '4');
+    
+insert into Mentor_Team (mentor_id, team_id)
+	values ('5', '5');
+--
+insert into Mentor (mentor_id, first_name, last_name, workplace, location_id, email)
+	values ('1', 'Dalena', 'Chua', 'YouTube', '1', 'dalenachua@gov.org');
+
+insert into Mentor (mentor_id, first_name, last_name, workplace, location_id, email)
+	values ('2', 'Funny', 'Jack', 'Klick', '2', 'FunnyJac@gmail.com');
+
+insert into Mentor (mentor_id, first_name, last_name, workplace, location_id, email)
+	values ('3', 'Horchta', 'Mora', 'Nickolodeon', '3', 'HorchtaMora@yahoo.com');
+    
+insert into Mentor (mentor_id, first_name, last_name, workplace, location_id, email)
+	values ('4', 'Hoe', 'Faith', 'Codehobbits', '4', 'Faithfulhoe@gov.org');
+    
+insert into Mentor (mentor_id, first_name, last_name, workplace, location_id, email)
+	values ('5', 'Macaroni', 'Splish', 'Google', '5', 'SPlishMac@gov.org');
+    
+insert into location (location_id, location)
+	values ('1', '2655 Dank Meme City');
+
+insert into location (location_id, location)
+	values ('2', '6722 Sesame Street');
+
+insert into skills (skills_id, S_name)
+	values ('1', 'driving');
+    
+insert into skills (skills_id, S_name)
+	values ('2', 'sketching');
+
+insert into skills (skills_id, S_name)
+	values ('3', 'engineering');
+
+insert into skills (skills_id, S_name)
+	values ('4', 'coding');
+    
+insert into skills (skills_id, S_name)
+	values ('5', 'running');
+
+insert into mentor_skills (mentor_id, skills_id)
+	values ('1', '1');
+
+insert into mentor_skills (mentor_id, skills_id)
+	values ('1', '2');
+    
+insert into mentor_skills (mentor_id, skills_id)
+	values ('1', '3');
+    
+insert into mentor_skills (mentor_id, skills_id)
+	values ('2', '2');
+    
+insert into mentor_skills (mentor_id, skills_id)
+	values ('3', '2');
+    
+insert into mentor_skills (mentor_id, skills_id)
+	values ('3', '5');
+    
+insert into mentor_skills (mentor_id, skills_id)
+	values ('4', '2');
+    
+insert into mentor_skills (mentor_id, skills_id)
+	values ('4', '4');
+    
+insert into mentor_skills (mentor_id, skills_id)
+	values ('4', '5');
+    
+insert into mentor_skills (mentor_id, skills_id)
+	values ('5', '2');
+    
+insert into mentor_skills (mentor_id, skills_id)
+	values ('5', '3');
+
+insert into mentor_skills (mentor_id, skills_id)
+	values ('5', '4');
