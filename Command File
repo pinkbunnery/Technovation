@@ -1,0 +1,32 @@
+/* 
+select * from Technovation.Student; 
+*/
+--
+/* 
+
+select * from Technovation.student
+where school = "AHS"
+;
+
+*/
+--
+/* select first_name,last_name from technovation.student
+where school =  "AHS"; */
+--
+/* select team_name from Technovation.team; */
+
+--
+/* use Technovation;
+select team.team_name, student.first_name, student.last_name
+from ((team
+inner join student_team on team.team_id = student_team.team_id)
+inner join student on student_team.student_id = student.student_id)
+order by team.team_name; */
+--
+/* use Technovation;
+select team.team_name, student.first_name, student.last_name
+from ((team */
+/* could insert instead of "inner" : 'right', 'inner', 'left' */ 
+/* inner join student_team on team.team_id = student_team.team_id)
+inner join student on student_team.student_id = student.student_id)
+order by team.team_name; */
